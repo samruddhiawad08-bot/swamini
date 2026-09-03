@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Velora — Creative Space</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0d0d12;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(13, 13, 18, 0.75);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #d9b8ff;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d9b8ff;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px 60px;
+            background:
+                radial-gradient(circle at 20% 20%, #4c2670 0%, transparent 30%),
+                radial-gradient(circle at 80% 80%, #173d5c 0%, transparent 30%),
+                #0d0d12;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50px;
+            color: #d9b8ff;
+            margin-bottom: 25px;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .hero h1 {
+            font-size: clamp(50px, 9vw, 100px);
+            line-height: 1;
+            margin-bottom: 25px;
+            background: linear-gradient(90deg, #ffffff, #d9b8ff, #8ed8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: #aaa;
+            font-size: 18px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 14px 30px;
+            background: #ffffff;
+            color: #111;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.2);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 50px;
+        }
+
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            padding: 35px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 25px;
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.08);
+            border-color: #b990e8;
+        }
+
+        .icon {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #999;
+        }
+
+        /* ABOUT */
+        .about {
+            background: #111118;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 750px;
+            margin: auto;
+            color: #aaa;
+            font-size: 18px;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 650px;
+            margin: auto;
+            padding: 50px;
+            border-radius: 30px;
+            background: linear-gradient(
+                135deg,
+                rgba(180,130,240,0.15),
+                rgba(80,160,220,0.08)
+            );
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 18px 5%;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 13px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 80px 6%;
+            }
+
+            .section-title {
+                font-size: 35px;
+            }
+
+            .hero h1 {
+                font-size: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">VELORA</div>
+
+        <div>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                ✦ Creative • Modern • Minimal
+            </div>
+
+            <h1>CREATE<br>BEYOND.</h1>
+
+            <p>
+                A beautiful digital space designed for ideas,
+                creativity and modern experiences.
+            </p>
+
+            <a href="#services" class="btn">
+                Explore More →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <h2 class="section-title">About Us</h2>
+
+        <p class="section-subtitle">
+            Simple ideas. Beautiful experiences.
+        </p>
+
+        <div class="about-content">
+            <p>
+                Velora is a creative digital space focused on
+                clean design, modern technology and meaningful
+                experiences. We believe that great design should
+                feel simple, elegant and effortless.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+    <section id="services">
+
+        <h2 class="section-title">What We Do</h2>
+
+        <p class="section-subtitle">
+            Everything you need to build something amazing.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">✦</div>
+                <h3>Creative Design</h3>
+                <p>
+                    Beautiful and modern interfaces designed
+                    to make your ideas stand out.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">⌘</div>
+                <h3>Development</h3>
+                <p>
+                    Fast, responsive and reliable websites
+                    built with modern technologies.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">◈</div>
+                <h3>Digital Growth</h3>
+                <p>
+                    Smart digital solutions that help your
+                    project grow and reach more people.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <div class="contact-box">
+
+            <h2 class="section-title">
+                Let's Create.
+            </h2>
+
+            <p class="section-subtitle">
+                Have an idea? Let's turn it into something beautiful.
+            </p>
+
+            <a href="mailto:hello@example.com" class="btn">
+                Get In Touch
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Velora. Made with ✦ and creativity.
+    </footer>
+
+</body>
+</html>
